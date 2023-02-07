@@ -1,0 +1,90 @@
+/* --Neue Haas Unica Pro-- font-family*/ 
+
+@font-face {
+    font-family: "NeueHaasUnicaPro";
+    font-weight: 300;
+    src: local("NeueHaasUnicaPro"), url(../fonts/NeueHassUnicaPro/NeueHaasUnicaThin/font.woff2) format("woof2"), url(../fonts/NeueHassUnicaPro/NeueHaasUnicaThin/font.woff) format("woof");
+    font-display: swap;
+}
+@font-face {
+    font-family: "NeueHaasUnicaPro";
+    font-weight: 350;
+    src: local("NeueHaasUnicaPro"), url(../fonts/NeueHassUnicaPro/NeueHaasUnicaLight/font.woff2) format("woof2"), url(../fonts/NeueHassUnicaPro/NeueHaasUnicaLight/font.woff) format("woof");
+    font-display: swap;
+}
+@font-face {
+    font-family: "NeueHaasUnicaPro";
+    font-weight: 400;
+    src: local("NeueHaasUnicaPro"), url(../fonts/NeueHassUnicaPro/NeueHaasUnicaRegular/font.woff2) format("woof2"), url(../fonts/NeueHassUnicaPro/NeueHaasUnicaRegular/font.woff) format("woof");
+    font-display: swap;
+}
+@font-face {
+    font-family: "NeueHaasUnicaPro";
+    font-weight: 500;
+    src: local("NeueHaasUnicaPro"), url(../fonts/NeueHassUnicaPro/NeueHaasUnicaMedium/font.woff2) format("woof2"), url(../fonts/NeueHassUnicaPro/NeueHaasUnicaMedium/font.woff) format("woof");
+    font-display: swap;
+}
+@font-face {
+    font-family: "NeueHaasUnicaPro";
+    font-weight: 600;
+    src: local("NeueHaasUnicaPro"), url(../fonts/NeueHassUnicaPro/NeueHaasUnicaBold/font.woff2) format("woof2"), url(../fonts/NeueHassUnicaPro/NeueHaasUnicaBold/font.woff) format("woof");
+    font-display: swap;
+}
+@font-face {
+    font-family: "NeueHaasUnicaPro";
+    font-weight: 700;
+    src: local("NeueHaasUnicaPro"), url(../fonts/NeueHassUnicaPro/NeueHaasUnicaBlack/font.woff2) format("woof2"), url(../fonts/NeueHassUnicaPro/NeueHaasUnicaBlack/font.woff) format("woof");
+    font-display: swap;
+}
+
+/* --Cooper Lt BT-- font-family*/ 
+
+@font-face {
+    font-family: "CooperLtBT";
+    font-weight: 400;
+    src: local("CooperLtBT"), url(../fonts/CooperLtBT/CooperBTLight/font.woff) format("woof");
+    font-display: swap;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "NeueHaasUnicaPro", sans-serif;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(241, 238, 233, 0.16) 0%, #F1EEE9 100%);
+}
+
+main {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+footer {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+input, button, select, textarea, option {
+    font-family: "NeueHaasUnicaPro", sans-serif;
+}
+
+h1 {
+    font-family: "CooperLtBT", sans-serif;
+    font-weight: 400;
+}
+
+h2, h3, h4, h5 {
+    font-family: "CooperLtBT", sans-serif;
+    font-weight: 500;
+}
+
+p {
+    font-family: "NeueHaasUnicaPro", sans-serif;
+    font-size: 18px;
+    line-height: 25px;
+}
