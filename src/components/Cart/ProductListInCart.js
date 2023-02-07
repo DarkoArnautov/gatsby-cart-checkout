@@ -22,6 +22,18 @@ const ProductsList = styled.div`
 	background: #ffffff;
   max-height: calc(100vh - 350px);
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    -webkit-appearance: none;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, .3);
+    width: 2px;
+  }
 `
 
 const PriceSum = styled.div`
