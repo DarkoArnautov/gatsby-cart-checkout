@@ -4,7 +4,6 @@ import { CountryDropdown } from 'react-country-region-selector';
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
-
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import device from "../components/common/device"

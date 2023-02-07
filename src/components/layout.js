@@ -25,6 +25,7 @@ const Layout = ({ children, checkout = false }) => {
     }
   `);
 
+  /* Static Products data in the cart */
   const addedCartProducts = [
     {
       id: 1,
@@ -44,7 +45,7 @@ const Layout = ({ children, checkout = false }) => {
 
   const [visibleCart, setVisibleCart] = useState(false);
 
-  /** cartContect - this context can be used in all pages for the change of cart list */
+  /** CartContext - this context can be used in all pages for the change of cart list */
   const [cartContext, setCartContext] = useState(addedCartProducts);
 
   const showCart = () => {
@@ -54,7 +55,6 @@ const Layout = ({ children, checkout = false }) => {
   const hideCart = () => {
     setVisibleCart(false)
   }
-
   
   return (
     <Context.Provider value={[cartContext, setCartContext]}>

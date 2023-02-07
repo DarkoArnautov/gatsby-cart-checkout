@@ -201,8 +201,8 @@ const DiscountCode = styled.div`
 
 const ProductsInCart = ({ checkout = false }) => {
 	const [cartContext, setCartContext] = useContext(Context);
-  const [discountCode, setDiscountCode] = useState(null);
   const [discount, setDiscount] = useState(0);
+  const [discountCode, setDiscountCode] = useState(null);
   const [visiblePromo, setVisiblePromo] = useState(false);
   const [subTotalPrice, setSubTotalPrice] = useState(0)
 
@@ -210,21 +210,15 @@ const ProductsInCart = ({ checkout = false }) => {
 
   const applyCode = () => {
     let discountValue = 0
-    if(discountCode) {
-      discountValue = 22
+
+    /* set static value  witth $22 for any discount code*/
+        if(discountCode) {
+      discountValue = 22 
     }
     setDiscount(22);
   }
 
-  useEffect(() => {
-    console.log(cartContext)
-    let sum = 0;
-    for( let i = 0; i < cartContext.length; i ++) {
-      sum = sum + cartContext[i].price * cartContext[i].amount;
-    }
-    setSubTotalPrice(sum);
-  }, [])
-
+  /* define this function for the child component(:<Product>) that is handling amount */
   const handleSubTotal = (newVal, symbol) => {
     let sum = subTotalPrice;
     if(symbol === "-") {
@@ -235,6 +229,15 @@ const ProductsInCart = ({ checkout = false }) => {
     
     setSubTotalPrice(sum);
   }
+
+  useEffect(() => {
+    console.log(cartContext)
+    let sum = 0;
+    for( let i = 0; i < cartContext.length; i ++) {
+      sum = sum + cartContext[i].price * cartContext[i].amount;
+    }
+    setSubTotalPrice(sum);
+  }, [])
 
 	return(
     <>
