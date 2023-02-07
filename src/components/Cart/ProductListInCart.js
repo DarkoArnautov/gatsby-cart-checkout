@@ -7,6 +7,7 @@ import CoolCatWidget from "../CoolCatWidget/index.js";
 import CartProduct from "./CartProduct.js";
 
 import CloseIcon from "../../images/svg/close.svg"
+import device from "../common/device.js";
 
 const Wrapper = styled.div`
   position: relative;
@@ -19,9 +20,9 @@ const ProductsList = styled.div`
 	border: ${props => props.border};
   border-radius: 9px;
 	padding: ${props => props.padding};
-	background: #ffffff;
-  max-height: calc(100vh - 350px);
+  max-height: ${props => props.maxHeight};
   overflow-y: auto;
+  background: #ffffff;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -33,6 +34,7 @@ const ProductsList = styled.div`
     border-radius: 8px;
     background: rgba(0, 0, 0, .3);
     width: 2px;
+    margin-right: -5px;
   }
 `
 
@@ -176,11 +178,11 @@ const DiscountCode = styled.div`
   border-radius: 12px;
   font-size: 14px;
   line-height: 25px;
-  padding: 0 10px;
+  padding: 0 7px;
   width: fit-content;
 
   .close-icon {
-    width: 17px;
+    width: 15px;
     margin-left: 5px;
     display: flex;
     flex-direction: column;
@@ -224,8 +226,9 @@ const ProductsInCart = ({ checkout = false }) => {
     {cartContext.length > 0 && (
         <Wrapper>
           <ProductsList
-            border={checkout ? "1px solid #9E9E9E" : "0" }
-            padding={checkout ? "25px 15px 30px" : "0" }
+            border={checkout ? "1px solid #9E9E9E" : "0"}
+            padding={checkout ? "25px 15px 30px" : "0"}
+            maxHeight={checkout ? "auto" : "calc(100vh - 350px)"}
           >
             {cartContext.map((item, i) => {
               if(item.amount > 0) {

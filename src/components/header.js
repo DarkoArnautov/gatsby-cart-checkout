@@ -12,15 +12,21 @@ const HeaderWrapper = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 16px 15px;
-  margin: 30px auto 0;
+  margin: 15px auto 0;
 
   svg {
-    width: 180px;
-    height: 50px;
+    width: 120px;
+    height: 35px;
   }
 
   @media${device.tablet} {
     padding: 16px 30px;
+    margin: 30px auto 0;
+
+    svg {
+      width: 180px;
+      height: 50px;
+    }
   }
 `;
 

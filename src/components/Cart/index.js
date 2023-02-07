@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import ProductListInCart from "./ProductListInCart";
 import { Context } from "../common/context"
+import device from "../common/device";
 
 import CloseIcon from "../../images/svg/close.svg"
 
@@ -14,7 +15,7 @@ const CartWrapper = styled.div`
   right: -375px;
   top: 0;
   background: #ffffff;
-  padding: 40px 15px;
+  padding: 30px 15px;
   transform: ${props => props.visible ? "translateX(-375px)": "none"};
   transition: all linear 0.3s;
 
@@ -22,17 +23,30 @@ const CartWrapper = styled.div`
     position: relative;
     width: 100%;
     text-align: center;
-    font-size: 35px;
-    line-height: 42px;
+    font-size: 30px;
+    line-height: 1.2;
     margin-top: 0;
 
     .close-icon {
       position: absolute;
-      top: 5px;
-      left: 20px;
+      top: 0px;
+      left: 0;
 
       :hover{
         cursor: pointer;
+      }
+    }
+  }
+
+  @media ${device.phoneL} {
+    padding: 40px 15px;
+
+    .cart-header {
+      font-size: 35px;
+
+      .close-icon {
+        top: 5px;
+        left: 0;
       }
     }
   }

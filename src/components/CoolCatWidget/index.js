@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
 import device from "../common/device";
 
+import AddNowButtonBg  from "../../images/svg/add-button-bg.svg"
+
 const Widget = styled.div`
   width: 100%;
   background: #FFFBEC;
@@ -24,12 +26,11 @@ const Widget = styled.div`
 
     div {
       width: 100%;
-      min-height: 105px;
+      min-height: 122px;
 
       .gatsby-image-wrapper {
         width: 100%;
         height: auto;
-        aspect-ratio: 1.5;
       }
 
       p {
@@ -38,6 +39,10 @@ const Widget = styled.div`
         font-weight: 300;
         color: #000000;
         margin-bottom: 15px;
+      }
+
+      .description {
+        opacity: 0.6;
       }
 
       .price {
@@ -78,7 +83,30 @@ const Widget = styled.div`
 `;
 
 const AddButton = styled.button`
-
+  position: relative;
+  padding: 7px 20px 10px;
+  text-align: center;
+  background: none;
+  border: 0;
+  outline: 0;
+  .bg-wrap {
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    left: 0;
+    width: 100% !important;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  p {
+    position: relative;
+    font-size: 20px;
+    line-height: 1;
+    margin-bottom: 0 !important;
+    z-index: 2;
+  }
 `
 
 const CoolCatWidget = () => (
@@ -93,10 +121,13 @@ const CoolCatWidget = () => (
         />
       </div>
       <div>
-        <p>Add the “Catnip” cover to your order and save 5%</p>
+        <p className="description">Add the “Catnip” cover to your order and save 5%</p>
         <p className="price"><span>$122.55</span> <span className="original">$129.00</span></p>
         <AddButton>
-          Add Now
+          <div className="bg-wrap">
+            <AddNowButtonBg />
+          </div>
+          <p>Add Now</p>
         </AddButton>
       </div>
     </div>
