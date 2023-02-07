@@ -1,9 +1,8 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
 import ProductImage from "../ProductImage";
 
-import { Context } from "../common/context";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -64,31 +63,18 @@ const OrderNumberWrap = styled.div`
   }
 `
 
-const CartProduct = ({ data }) => {
+const CartProduct = ({ data, subTotalPriceChange }) => {
   const [amount, setAmount] = useState(data.amount);
-  const [cartContext, setCartContext] = useContext(Context);
 
   const decrease = () => {
     setAmount(amount - 1);
+    subTotalPriceChange(data.price, "-");
   }
 
   const increase = () => {
     setAmount(amount + 1);
+    subTotalPriceChange(data.price, "+");
   }
-
-  useEffect(() => {
-    let updatedData = cartContext;
-    const upd_index = updatedData.findIndex((obj => obj.id = data.id));
-
-    if(amount === 0) {
-      updatedData.splice(upd_index, 1);
-    } else {
-      updatedData[upd_index].amount = amount;
-    }
-
-    setCartContext(updatedData);
-
-  }, [amount, setAmount]);
 
   return(
     <>

@@ -204,14 +204,9 @@ const ProductsInCart = ({ checkout = false }) => {
   const [discountCode, setDiscountCode] = useState(null);
   const [discount, setDiscount] = useState(0);
   const [visiblePromo, setVisiblePromo] = useState(false);
+  const [subTotalPrice, setSubTotalPrice] = useState(0)
 
   const discountCodeList = ["LAUNCH15OFFEVERYTHING", "FLUFFY12"];
-
-  let subTotalPrice = 0;
-
-  cartContext.forEach(function(item) {
-    subTotalPrice = subTotalPrice + item.price * item.amount;
-  });
 
   const applyCode = () => {
     let discountValue = 0
@@ -221,9 +216,29 @@ const ProductsInCart = ({ checkout = false }) => {
     setDiscount(22);
   }
 
+  useEffect(() => {
+    console.log(cartContext)
+    let sum = 0;
+    for( let i = 0; i < cartContext.length; i ++) {
+      sum = sum + cartContext[i].price * cartContext[i].amount;
+    }
+    setSubTotalPrice(sum);
+  }, [])
+
+  const handleSubTotal = (newVal, symbol) => {
+    let sum = subTotalPrice;
+    if(symbol === "-") {
+      sum = sum - Number(newVal);
+    } else {
+      sum = sum + Number(newVal);
+    }
+    
+    setSubTotalPrice(sum);
+  }
+
 	return(
     <>
-    {cartContext.length > 0 && (
+      {cartContext.length > 0 && subTotalPrice !== 0 ? (
         <Wrapper>
           <ProductsList
             border={checkout ? "1px solid #9E9E9E" : "0"}
@@ -233,7 +248,7 @@ const ProductsInCart = ({ checkout = false }) => {
             {cartContext.map((item, i) => {
               if(item.amount > 0) {
                 return(
-                  <CartProduct data={item} key={i} />                  
+                  <CartProduct data={item} key={i} subTotalPriceChange={handleSubTotal} />                  
                 );
               } else {
                 return
@@ -336,6 +351,8 @@ const ProductsInCart = ({ checkout = false }) => {
             </BottomWrap>
           )}
         </Wrapper>
+      ):(
+        <p>There’s nothing for your poor cat in your cart!</p>
       )}
     </>
 	)
